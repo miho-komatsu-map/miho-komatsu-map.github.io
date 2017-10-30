@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>小松未歩マップ</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/sakura.css">
+  <style>
+    #map {
+      width: 100%;
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>小松未歩マップ</h1>
+  <p>
+    <a href="javascript:void(0)" onclick="changeMap('35.00399244853612','135.69603544140625',9)">関西</a>
+    <a href="javascript:void(0)" onclick="changeMap('35.598000847157564','139.78844266796875',9)">関東</a>
+    <a href="javascript:void(0)" onclick="changeMap('43.86114779717308','8.875356730468752',5)">欧州</a>
+  </p>
+  <iframe src="https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k" id="map"></iframe>
+  <script>
+    function changeMap(lat, lon, zoom) {
+      var ll = "ll=" + lat + "," + lon;
+      var z = "z=" + zoom;
+      var params = ll + "&" + z;
+      document.getElementById("map").contentWindow.location.replace("https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k&" + params);
+    }
+  </script>
+</body>
+
+</html>
