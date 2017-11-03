@@ -6,8 +6,12 @@
   <title>小松未歩マップ</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/sakura.css">
+  <link rel="stylesheet" href="css/sakura-earthly.css">
   <style>
+    body {
+      max-width: 60em;
+    }
+
     #map {
       width: 100%;
       height: 600px;
@@ -17,18 +21,38 @@
 
 <body>
   <h1>小松未歩マップ</h1>
+  <hr>
+  <p>「小松未歩マップ」は、小松未歩さんにまつわる地図情報をまとめたGoogleマイマップと、関連情報です。このマイマップをあなたのGoogleマップにマイプレイスとして設定すれば、未歩さんにまつわる場所を簡単にめぐることが出来ます。ぜひご活用ください！</p>
   <p>
-    <a href="javascript:void(0)" onclick="changeMap('35.00399244853612','135.69603544140625',9)">関西</a>
-    <a href="javascript:void(0)" onclick="changeMap('35.598000847157564','139.78844266796875',9)">関東</a>
-    <a href="javascript:void(0)" onclick="changeMap('43.86114779717308','8.875356730468752',5)">欧州</a>
+    <button type="button" onclick="changeMap('35.00399244853612','135.69603544140625',9)">関西地方</button>
+    <button type="button" onclick="changeMap('35.598000847157564','139.78844266796875',9)">関東地方</button>
+    <button type="button" onclick="changeMap('43.86114779717308','8.875356730468752',5)">海外（ヨーロッパ）</button>
   </p>
   <iframe src="https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k" id="map"></iframe>
+  <p>
+    <small>出典：CDジャケット写真は小松未歩さん公式サイトから、プロモーションビデオ画像は各プロモーションビデオから引用</small>
+  </p>
+
+  <h2>Googleマップでの利用方法</h2>
+  <p>パソコンとスマートフォン（Android、iPhone/iPad）にてご利用いただけます。Googleのヘルプページ：
+    <a href="https://support.google.com/maps/answer/3045850" target="_blank">Google マップでマイマップを表示する</a>をご確認の上、設定してください。</p>
+
+  <h2>小松未歩マップのご自身のサイトへの埋め込みについて</h2>
+  <p>歓迎いたします！埋め込む際は出典情報として本サイトのサイト名とURLの表示をお願いいたします。</p>
+
+  <h2>管理人</h2>
+  <p>本サービスは
+    <a href="https://twitter.com/kntrs">Kentauros</a>と
+    <a href="https://twitter.com/miho3everywhere">真</a>とで制作・運営しております。この地図の利用による如何なる損害に対しても管理人は責任を負いかねますので、予めご了承下さい。ご意見・ご要望等ございましたらTwitterアカウントへご連絡ください。善処します^^
+  </p>
+
+  <hr>
+  <address>&copy; 2017 小松未歩マップ</address>
+
   <script>
     function changeMap(lat, lon, zoom) {
-      var ll = "ll=" + lat + "," + lon;
-      var z = "z=" + zoom;
-      var params = ll + "&" + z;
-      document.getElementById("map").contentWindow.location.replace("https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k&" + params);
+      var ll = "ll=" + lat + "," + lon; var z = "z=" + zoom; var params = ll + "&" + z; document.getElementById("map").contentWindow.location.replace("https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k&"
+        + params);
     }
   </script>
 </body>
