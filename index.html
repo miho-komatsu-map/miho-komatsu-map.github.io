@@ -16,7 +16,7 @@
       margin: 2px 0;
     }
 
-    #map {
+    #miho-komatsu-map {
       width: 100%;
       height: 600px;
     }
@@ -27,6 +27,38 @@
 
   <meta name="keywords" content="小松未歩,マップ,撮影場所">
   <meta name="description" content="小松未歩マップは、小松未歩さんにまつわる地図情報をまとめたGoogleマイマップと、関連情報です。">
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebPage",
+      "name": "小松未歩マップ",
+      "url": "https://miho-komatsu-map.github.io/",
+      "description": "小松未歩マップは、小松未歩さんにまつわる地図情報をまとめたGoogleマイマップと、関連情報です。",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "https://miho-komatsu-map.github.io/",
+              "name": "TOP"
+            }
+          }
+        ]
+      },
+      "mainContentOfPage": {
+        "@type": "WebPageElement",
+        "cssSelector": "#miho-komatsu-map",
+        "name": "小松未歩マップ"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://miho-komatsu-map.github.io/img/logo.png"
+      }
+    }
+  </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109870405-1"></script>
@@ -70,7 +102,7 @@
     <button type="button" onclick="changeMap('43.86114779717308','8.875356730468752',5)">海外（ヨーロッパ）</button>
   </p>
   <iframe src="https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k&amp;ll=35.09012869411596%2C135.51381515519097&amp;z=9"
-    id="map"></iframe>
+    id="miho-komatsu-map"></iframe>
   <p>
     <small>出典：CDジャケット写真と「ヘンな物さし。」の書影は小松未歩さん公式サイトから、プロモーションビデオ画像は各プロモーションビデオから引用</small>
   </p>
@@ -92,8 +124,14 @@
 
   <script>
     function changeMap(lat, lon, zoom) {
-      var ll = "ll=" + lat + "," + lon; var z = "z=" + zoom; var params = ll + "&" + z; document.getElementById("map").contentWindow.location.replace("https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k&"
-        + params);
+      var ll = "ll=" + lat + "," + lon;
+      var z = "z=" + zoom;
+      var params = ll + "&" + z;
+      document
+        .getElementById("miho-komatsu-map")
+        .contentWindow
+        .location
+        .replace("https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k&" + params);
     }
   </script>
 </body>
