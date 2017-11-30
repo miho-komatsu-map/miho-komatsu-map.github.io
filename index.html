@@ -101,15 +101,16 @@
   <hr>
   <p>「小松未歩マップ」は、小松未歩さんのプロモーションビデオ撮影場所やその他の地図情報をまとめたGoogleマイマップと、関連情報です。このマイマップをあなたのGoogleマップにマイプレイスとして設定すれば、未歩さんにまつわる場所を簡単にめぐることが出来ます。ぜひご活用ください！</p>
   <p>
-    <button type="button" onclick="changeMap('35.09012869411596','135.51381515519097',9)">関西地方</button>
-    <button type="button" onclick="changeMap('35.598000847157564','139.78844266796875',9)">関東地方</button>
-    <button type="button" onclick="changeMap('35.08759300044666','132.98970626847222',9)">中国地方</button>
-    <button type="button" onclick="changeMap('33.5110388618723','133.50057052628472',9)">四国地方</button>
-    <button type="button" onclick="changeMap('43.593794849631585','142.45442794815972',8)">北海道</button>
-    <button type="button" onclick="changeMap('43.86114779717308','8.875356730468752',5)">海外（ヨーロッパ）</button>
+    <button type="button" onclick="changeMap('ll=35.09012869411596%2C135.51381515519097&amp;z=9')">関西地方</button>
+    <button type="button" onclick="changeMap('ll=35.598000847157564%2C139.78844266796875&amp;z=9')">関東地方</button>
+    <button type="button" onclick="changeMap('ll=35.08759300044666%2C132.98970626847222&amp;z=9')">中国地方</button>
+    <button type="button" onclick="changeMap('ll=33.5110388618723%2C133.50057052628472&amp;z=9')">四国地方</button>
+    <button type="button" onclick="changeMap('ll=43.593794849631585%2C142.45442794815972&amp;z=8')">北海道</button>
+    <button type="button" onclick="changeMap('ll=43.86114779717308%2C8.875356730468752&amp;z=5')">海外（ヨーロッパ）</button>
   </p>
-  <iframe src="https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k&amp;ll=35.09012869411596%2C135.51381515519097&amp;z=9"
-    id="miho-komatsu-map"></iframe>
+  <div>
+    <iframe id="miho-komatsu-map"></iframe>
+  </div>
   <p>
     <small>出典：CDジャケット写真と「ヘンな物さし。」の書影は小松未歩さん公式サイトから、プロモーションビデオ画像は各プロモーションビデオから引用</small>
   </p>
@@ -130,16 +131,15 @@
   <address>&copy; 2017 小松未歩マップ</address>
 
   <script>
-    function changeMap(lat, lon, zoom) {
-      var ll = "ll=" + lat + "," + lon;
-      var z = "z=" + zoom;
-      var params = ll + "&" + z;
+    function changeMap(querystring) {
       document
         .getElementById("miho-komatsu-map")
-        .contentWindow
-        .location
-        .replace("https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k&" + params);
+        .src = "https://www.google.com/maps/d/embed?mid=1MrzmOmUqWcKxM5doinDeHFrHd_k&" + querystring;
     }
+    window.addEventListener("load", function (event) {
+      var querystring = document.location.search ? document.location.search.slice(1) : 'll=35.09012869411596%2C135.51381515519097&z=9';
+      changeMap(querystring);
+    });
   </script>
 </body>
 
